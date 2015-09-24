@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
+  #get 'sessions/new'
   #get 'users/new'
   root to: 'static_pages#home'
   get 'signup',  to: 'users#new'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+
+  resources :users , except: [:index, :new]
+  resources :sessions, only: [:new, :create, :destroy]
+  get 'users/:id/edit' => 'users#edit' , as:'edit_users'
   
-  resources :users
+  resources :microposts
+  
 end
 
   # The priority is based upon order of creation: first created -> highest priority.
