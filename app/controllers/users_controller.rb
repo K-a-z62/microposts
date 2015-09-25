@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     
   end
   
-   def update
+  def update
     if @user.update(user_params)
       # 保存に成功した場合はトップページへリダイレクト
       redirect_to root_path , notice: 'プロフィールを編集しました'
