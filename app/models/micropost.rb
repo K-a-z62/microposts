@@ -8,4 +8,8 @@ class Micropost < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites ,source: :user
   
+  def favorite?(user)
+  favorite_users.include?(user)
+  end
+  
 end

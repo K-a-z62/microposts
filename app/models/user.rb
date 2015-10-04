@@ -40,14 +40,14 @@ class User < ActiveRecord::Base
   
   #お気に入り解除
   def unfavorite(micropost)
-      favorites.find_by(micropost_id: micropost.id).destory
+      favorites.find_by(micropost_id: micropost.id).destroy
   end
 
   #お気に入りをしているかどうか確認
-  def favorite?(micropost) 
-     favorite_microposts.include?(micropost)
-  end 
-  
+  def favorite?(micropost)
+      favorite_microposts.include?(micropost)
+  end
+    
   #タイムライン表示
   def feed_items
     Micropost.where(user_id: following_user_ids + [self.id])
