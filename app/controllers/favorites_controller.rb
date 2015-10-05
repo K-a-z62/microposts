@@ -8,7 +8,8 @@ before_action :logged_in_user
     
     def destroy
         @favorite= current_user.favorites.find(params[:id])
-        current_user.unfavorite(@micropost)
+        binding.pry
+        current_user.unfavorite(@favorite)
     end
     
 
