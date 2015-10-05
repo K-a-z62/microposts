@@ -1,3 +1,5 @@
-
-  <%= link_to gravatar_for(user.following_users, size: 50), user.following_users %>
-  <span class="user"><%= link_to user.following_users.name, user.following_users %></span>
+<div class=followinguser>
+    <div class= picture><%= link_to gravatar_for(user.following_users, size: 50), user.following_users %></div>
+    <div class= text><%= link_to user.following_users.name, user.following_users %></div>
+  </ul>
+</div>
