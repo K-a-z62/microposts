@@ -6,8 +6,10 @@ class MicropostsController < ApplicationController
     if @micropost.save
       flash[:success] = "Micropost created!"
       redirect_to root_url
-    else
-      render 'static_pages/home'
+      
+    else  @micropost.errors.present?
+      flash[:danger] = "Micropost do not create!"
+      redirect_to root_url 
     end
   end
   
