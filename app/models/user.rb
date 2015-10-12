@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
     has_many :following_users, through: :following_relationships, source: :followed
     
     #お気に入り機能
-    has_many :favorites, dependent: :destroy
+    has_many :favorites, dependent: :destroy , foreign_key: "user_id"
     has_many :favorite_microposts, through: :favorites, source: :micropost
 
     # 他のユーザーをフォローする
